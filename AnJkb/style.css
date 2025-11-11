@@ -1,0 +1,152 @@
+/* 背景と基本フォント設定 */
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f3fff3; /* 柔らかい淡緑背景 */
+  color: #333;
+  transform: scale(0.7);
+  transform-origin: top center;
+}
+
+/* メインレイアウト */
+.pkm-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 40px 60px;
+  box-sizing: border-box;
+}
+
+/* 動画カード */
+.video-wrapper {
+  perspective: 1400px;
+}
+
+.device-card {
+  width: 360px;
+  max-width: 90vw;
+  padding: 14px;
+  border-radius: 40px;
+  background: linear-gradient(180deg, #b4f3b4, #52c878);
+  box-shadow: 0 20px 50px rgba(82, 200, 120, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.device-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 30px 70px rgba(82, 200, 120, 0.6);
+}
+
+.device-card video {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  display: block;
+}
+
+/* 右側の説明エリア */
+.info-box {
+  max-width: 480px;
+  font-size: 1.1rem;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.info-box h1 {
+  font-size: 2.4rem;
+  margin: 0 0 18px;
+  color: #3fb36a; /* 緑色タイトル */
+  font-weight: 700;
+}
+
+.info-box p {
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.info-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 20px;
+}
+
+.info-box li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+/* 🟢 ホームへ戻るボタン（淡い緑テーマ） */
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 10px 26px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #9be7a2, #3fb36a);
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(82, 200, 120, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.back-home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.back-home:hover::before {
+  left: 130%;
+}
+
+.back-home:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(82, 200, 120, 0.6);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 900px) {
+  .pkm-page {
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+  }
+
+  .device-card {
+    width: 280px;
+  }
+
+  .info-box {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  .info-box h1 {
+    font-size: 2rem;
+  }
+
+  .back-home {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
